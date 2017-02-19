@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autotune</title>
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/styles.min.css">
+</head>
+
+<body>
+    <div class="row fullheight">
+        <div class="col-md-2" style="padding:-1px">
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="list-group">
+                        <li class="list-group-item" ng-repeat="drive in DriveList | orderObjectBy: 'Name' track by $index" ng-class="{active : SelectedDrive === drive}" ng-click="selectDrive(drive)" style="padding:5px;">
+                            <div class="row showHandCursor" title="Drive Name">
+                                <div class="col-md-12 col-md-offset-0" style="margin:0px 0px 2px 2px"><span class="boldText">{{drive.Name}} </span></div>
+                            </div>
+                            <div class="row showHandCursor">
+                                <div class="col-md-3 col-sm-1 col-xs-2" title="{{drive.DriveType}}"><img src="../assets/img/ac30.jpg" width="25" id="driveImage" style="margin:0px"></div>
+                                <div class="col-md-9 col-sm-9 col-xs-9">
+                                    <div class="row" title="Drive's FW version">
+                                        <div class="col-md-12" data-toggle="tooltip"><span>FW : {{drive.FwVersion}}</span></div>
+                                    </div>
+                                    <div class="row" title="Drive's IpAddress">
+                                        <div class="col-md-12"><span>{{drive.IpAddress}} </span></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3 col-md-offset-8"><a href="http://{{drive.IpAddress}}" target="_blank" title="Click to open in seperate browser window">link</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+                    <button class="btn btn-primary" type="button" id="ScanButton" ng-click="ScanDrives()">Scan </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10 fullheight" style="padding:0px 0px 0px 0px">
+            <!-- <drivetabset drivelist="DriveList"/> -->
+            <div class="container-fluid fullheight" ng-repeat="drive in DriveList" style="padding:0px" ng-class="{'show-div': drive.active, 'hide-div': !drive.active}">
+              <iframe frameBorder="0"  ng-src="{{drive.url}}" ng-class="drive.active" style="height:100%;width:100%"></iframe>
+            </div>
+        </div>
+    </div>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/js/script.min.js"></script>
+</body>
+
+</html>

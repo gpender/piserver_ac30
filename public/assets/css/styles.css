@@ -1,0 +1,87 @@
+/* Animate `ngRepeat` in `phoneList` component */
+.phone-list-item.ng-enter,
+.phone-list-item.ng-leave,
+.phone-list-item.ng-move {
+  overflow: hidden;
+  transition: 0.5s linear all;
+}
+
+.phone-list-item.ng-enter,
+.phone-list-item.ng-leave.ng-leave-active,
+.phone-list-item.ng-move {
+  height: 0;
+  margin-bottom: 0;
+  opacity: 0;
+  padding-bottom: 0;
+  padding-top: 0;
+}
+
+.phone-list-item.ng-enter.ng-enter-active,
+.phone-list-item.ng-leave,
+.phone-list-item.ng-move.ng-move-active {
+  height: 120px;
+  margin-bottom: 20px;
+  opacity: 1;
+  padding-bottom: 4px;
+  padding-top: 15px;
+}
+
+
+#parkerlogolink {
+  padding-top:5px;
+}
+
+hr.parkergold {
+  background:gold;
+  height:4px;
+  margin:0px;
+  margin-bottom:4px;
+  padding-top:0px;
+}
+
+.navbar {
+  position:relative;
+  min-height:30px;
+  margin-bottom:2px;
+  margin-top:2px;
+}
+
+.list-group {
+  margin:5px;
+}
+
+button#ScanButton.btn.btn-primary {
+  margin:10px;
+}
+
+div.row.showHandCursor {
+  cursor:pointer;
+}
+
+.list-group-item {
+  margin-bottom:2px;
+}
+
+img#driveImage {
+  margin-top:5px;
+  margin-left:0px;
+}
+
+span.fontMedium {
+  font-size:12px;
+}
+
+.fullheight {
+  height:100%;
+}
+.pageheight {
+  height:640px;
+}
+.show-div {
+  display:block;
+}
+.hide-div {
+  display:none;
+}
+
+

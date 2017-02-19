@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autotune</title>
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/styles.min.css">
+</head>
+
+<body>
+    <div ng-init="AddHostName('drive1','192.168.41.14');AddLiveParameters('drive1','395,989,1733');AddLiveParameters('drive2','989,1733')"></div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Panel Heading</h3></div>
+        <div class="panel-body">
+            <div style="width:100%;height:100%">
+    <div style="width:100%;height:100%"/>
+</div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Drive Information</h3></div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Drive 1 {{ParameterDictionary["drive1"].IpAddress}}</th>
+                            <th>Drive 2 {{ParameterDictionary["drive2"].IpAddress}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <h3 class="panel-title">Time since Power-On : {{ParameterDictionary["drive1"]["1733"].Value}}</h3>
+
+                            </td>
+                            <td>
+                                <h3 class="panel-title">Time since Power-On : {{ParameterDictionary["drive2"]["1733"].Value}}</h3>
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">SD Card</h3></div>
+        <div class="panel-body">
+            <file-browser hostname="drive1" hidefileview="false" maxheight="350"></file-browser>
+    
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Chart Controls</h3></div>
+        <div class="panel-body">
+            <div style="width:50%;height:400px;float:left">
+    <param-chart hostname="drive1" width="400" height="200" tag='1912' hidepausebutton="false"/>
+</div>
+<div style="width:50%;height:400px;float:right">
+    <param-chart hostname="drive1" tag='395' hidepausebutton="false" hidelegend="true" datapoints="500"/>
+</div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Parameter Value Controls</h3></div>
+        <div class="panel-body">
+                <param-label-value tag='487' hostname="drive1"></param-label-value>
+    
+            <div style="font-size:20px;width:200px">
+    <param-label-value tag='1901' hostname="drive1" hidename="false" hideunits="true"/>
+</div>    
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Textbox Controls</h3></div>
+        <div class="panel-body">
+            <div style="width:200px">
+    <param-edit-textbox tag='487' style="font-weight:bold" hideunits="true" hostname="drive1" stepsize="0.1">
+</div>
+    
+            <div style="width:200px">
+    <param-edit-textbox tag='486' hostname="drive1" hidename="false"></param-edit-textbox>
+</div>    
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Combobox Controls</h3></div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered">
+                    <tbody>
+                        <tr>
+                            <td style="padding:2px">
+                                <param-edit-combobox tag='1' hostname="drive1" style="font-family:Times New Roman" hideparametername="false"></param-edit-combobox>
+                            </td>
+                            <td style="padding:2px">
+                                <param-edit-combobox tag='2' hostname="drive1"></param-edit-combobox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:0px">
+                                <param-edit-combobox tag='987' hostname="drive1"></param-edit-combobox>
+                            </td>
+                            <td style="padding:0px"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Slider Controls</h3></div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Vertical </th>
+                            <th>Horizontal </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="table-responsive" style="height:250px">
+    <table class="table">
+        <tbody>
+            <tr>
+                <td>
+                    <div style="height:100px">
+                        <param-edit-slider orientation="vertical" hostname="drive1" tag='957' step="0.1" min="-100" max="100" confirmchange="true" hidename="true" hidevalue="false"/>
+                    </div>
+                </td>
+                <td>
+                    <div style="height:150px">
+                        <param-edit-slider orientation="vertical" hostname="drive1" tag='486' step="0.1" min="0" max="100" confirmchange="false" hidename="false" hidevalue="false"/>
+                    </div>
+                </td>
+                <td>
+                    <div style="height:200px">
+                        <param-edit-slider orientation="vertical" hostname="drive1" tag='487' step="0.1" min="0" max="100" confirmchange="false" hidename="false" hidevalue="false"/>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+                            </td>
+                            <td>
+                                <div style="width:100px">
+<param-edit-slider hostname="drive1" tag='957' step="0.1" min="-100" max="100" confirmchange="false" hidename="false" hidevalue="false"/>
+</div>
+                                <div style="width:200px">
+<param-edit-slider hostname="drive1" tag='486' step="0.1" min="1" max="100" confirmchange="false" hidename="false" hidevalue="false"/>
+</div>
+                                <div style="width:300px">
+<param-edit-slider hostname="drive1" tag='487' step="0.1" min="1" max="100" confirmchange="false" hidename="false" hidevalue="false"/>
+</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div style="width:200px">
+    <param-edit-slider hostname="drive1" tag='1944' step="0.1" min="0" max="100" confirmchange="false" hidename="false" hidevalue="false"/>
+</div>
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Checkbox Controls</h3></div>
+        <div class="panel-body">
+                <div>
+        <param-edit-chkbox tag='1943' hostname="drive1" confirmchange="false" hidename="false"></param-edit-chkbox>
+    </div>
+    
+                <div>
+        <param-edit-chkbox tag='1829' hostname="drive1" confirmchange="false" hidename="false"></param-edit-chkbox>
+    </div>
+    
+                <div>
+        <param-edit-chkbox tag='1691' hostname="drive1" confirmchange="false" hidename="false"></param-edit-chkbox>
+    </div>
+    
+                <div>
+        <param-edit-chkbox tag='1937' hostname="drive1" confirmchange="false" hidename="false"></param-edit-chkbox>
+    </div>
+    
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Gauge Controls</h3></div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div>
+    <param-gauge hostname="drive1" tag='554' min="-110" max="110" highlights="[{from:-110,to:-100,color:'Red'},{from:-100,to:100,color:'PaleGreen'},{from:100,to:110,color:'Red'}]"/>
+</div>
+                            </td>
+                            <td>
+                                <div>
+    <param-gauge hostname="drive1" tag='406' min="0" max="150" highlights="[{from:0,to:80,color:'PaleGreen'},{from:80,to:150,color:'Red'}]"/>
+</div>
+                            </td>
+                            <td>
+                                <div>
+    <param-gauge hostname="drive1" tag='407' min="0" max="150" highlights="[{from:0,to:100,color:'PaleGreen'},{from:100,to:150,color:'Red'}]"/>
+</div>
+                            </td>
+                            <td>
+                                <div>
+    <param-gauge hostname="drive1" tag='402' min="0" max="1"  highlights="[{from:0,to:0.7,color:'PaleGreen'},{from:0.7,to:1,color:'Red'}]"/>
+</div>
+                            </td>
+                            <td>
+                                <div>
+    <param-gauge hostname="drive1" tag='393' min="-1500" max="1500"  highlights="[{from:-1500,to:1500,color:'PaleGreen'}]"/>
+</div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Drive Onboard Flash</h3></div>
+        <div class="panel-body">
+            <div style="width:350px">
+    <file-browser hostname="drive1"  driveletter="c" hidefileview="true"/>
+</div>
+    
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Drive 2 IpAddress:{{ParameterDictionary["drive2"].IpAddress}} Time since Power-On : {{ParameterDictionary["drive2"]["1733"].Value}}</h3></div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th width="50%">Column 1</th>
+                            <th width="50%">Column 2</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding:0px">
+                                <param-edit-textbox tag='487' style="font-weight:bold" hideunits="true" hostname="drive2" stepsize="0.1"></param-edit-textbox>
+    
+                            </td>
+                            <td style="padding:0px">
+                                <param-edit-textbox tag='486' hostname="drive2" hidename="true"></param-edit-textbox>
+    
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:2px">
+                                <param-edit-combobox tag='1' hostname="drive2" style="font-family:Times New Roman" hideparametername="true"></param-edit-combobox>
+                            </td>
+                            <td style="padding:2px">
+                                <param-edit-combobox tag='2' hostname="drive2"></param-edit-combobox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:0px">
+                                <param-edit-textbox tag='1901' style="font-weight:bold" hostname="drive2" stepsize="0.01"></param-edit-textbox>
+                            </td>
+                            <td style="padding:0px">
+                                <param-edit-combobox tag='987' hostname="drive2"></param-edit-combobox>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div>
+        <button class="btn btn-primary" type="button" ng-click="SaveDriveIpAddressLookup()">Save DriveIpAddressLookup </button>
+    </div>
+    <div><img src="../assets/img/AmineTreating.png" style="width:100%;display:none"></div>
+        <div style="width:250px">
+        <param-edit-chkbox tag='1469' hostname="drive2" confirmchange="true"></param-edit-chkbox>
+    </div>
+    
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/js/script.min.js"></script>
+</body>
+
+</html>

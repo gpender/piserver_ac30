@@ -1,0 +1,11 @@
+<div role="tabpanel">
+  <ul class="nav nav-tabs" role="tablist" ng-repeat="tab in drivetabset.tabs">
+    <li role="presentation" ng-class="{'active': tab.active}">
+      <a href="" role="tab" ng-click="drivetabset.select(tab)">{{tab.header}}</a>
+    </li>
+  </ul>
+</div>
+<div class="container-fluid" ng-repeat="tab in drivetabset.tabs" ng-show="tab.active" style="padding:0px;border">
+  <iframe frameBorder="0" ng-src="{{tab.url}}" style="height:100%;width:100%"></iframe>
+</div>
+  

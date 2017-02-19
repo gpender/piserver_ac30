@@ -1,0 +1,25 @@
+{
+  "name": "ac30web",
+  "version": "1.0.0",
+  "description": "AC30 webpages",
+  "main": "server.js",
+  "scripts": {
+    "test": "ac30webtest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ac30web"
+  },
+  "author": "gpender",
+  "license": "ISC",
+  "dependencies" : {
+    "body-parser"    : "^1.4.3",
+    "express"        : "^4.13.4",
+    "method-override": "^2.1.3",
+    "mongoose"       : "^4.4.12",
+    "morgan"         : "^1.1.1",
+    "fs"             : "^0.0.2",
+    "multer"         : "^1.1.0",
+    "bootstrap-slider" : "^9.7.0"
+  }
+}

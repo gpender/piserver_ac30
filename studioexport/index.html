@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="ac30WebApp">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autotune</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.min.css">
+</head>
+
+<body ng-controller="mainController">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="navbar navbar-default" style="font-size:14px">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <a class="navbar-brand navbar-link" href="#" id="parkerlogolink"> <img src="assets/img/Parker_Hannifin.png"></a>
+                            <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                        </div>
+                        <div class="collapse navbar-collapse" id="navcol-1">
+                            <ul class="nav navbar-nav">
+                                <li role="presentation" ng-class="{active: activetab=='/home'}"><a href="#home" data-toggle="collapse" data-target=".navbar-collapse.in">Find Drives</a></li>
+                                <li role="presentation" ng-class="{active: activetab=='/node-red'}"><a href="#node-red" data-toggle="collapse" data-target=".navbar-collapse.in">Node-Red </a></li>
+                                <li role="presentation" ng-class="{active: activetab=='/service'}"><a href="#service" data-toggle="collapse" data-target=".navbar-collapse.in">Services</a></li>
+                                <li role="presentation" ng-class="{active: activetab=='/system'}"><a href="#system" data-toggle="collapse" data-target=".navbar-collapse.in">System</a></li>
+                                <li role="presentation" ng-class="{active: activetab=='/autotune'}"><a href="#autotune" data-toggle="collapse" data-target=".navbar-collapse.in">Autotune </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 tmp2">
+                <hr class="parkergold">
+            </div>
+            <div class="col-md-12">
+                <div class="ng-view pageheight"></div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/script.min.js"></script>
+</body>
+
+</html>

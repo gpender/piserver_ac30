@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="ac30WebApp">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ac30web</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body ng-controller="mainController">
+    <div class="row fullheight">
+        <div class="col-md-3">
+            <div class="row">
+                <div class="col-md-5">
+                    <button class="btn btn-primary" type="button" id="ScanButton" ng-click="ScanDrives()">Scan </button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="list-group">
+                        <li class="list-group-item" ng-repeat="drive in DriveList | orderObjectBy: 'Name' track by $index" ng-class="{active : SelectedDrive === drive}" ng-click="selectDrive(drive)">
+                            <div class="row showHandCursor">
+                                <div class="col-md-1"><img src="assets/img/ac30.jpg" width="20" id="driveImage"></div>
+                                <div class="col-md-9">
+                                    <div class="row">
+                                        <div class="col-md-12"><span class="fontMedium">{{drive.Name}} </span></div>
+                                        <div class="col-lg-offset-0 col-md-12" data-toggle="tooltip" title="Drive's FW version"><span class="fontMedium">FW: </span><span class="fontMedium">{{drive.FwVersion}} </span></div>
+                                        <div class="col-md-12"><span class="fontMedium">{{drive.IpAddress}} </span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9 fullheight">
+            <!-- <drivetabset drivelist="DriveList"/> -->
+<div class="container-fluid fullheight" ng-repeat="drive in DriveList" style="padding:0px" ng-class="{'show-div': drive.active, 'hide-div': !drive.active}">
+  <iframe frameBorder="0"  ng-src="{{drive.url}}" ng-class="drive.active" style="height:100%;width:100%"></iframe>
+</div>
+        </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/ieUserAgent.js"></script>
+    <script src="assets/js/angular.min.js"></script>
+    <script src="assets/js/angular-route.min.js"></script>
+    <script src="assets/js/sockjs.min.js"></script>
+    <script src="assets/js/core.js"></script>
+</body>
+
+</html>

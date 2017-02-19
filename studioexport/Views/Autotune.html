@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autotune</title>
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap-slider.min.css">
+</head>
+
+<body>
+    <div style="margin: 10px 10px 10px 10px" ng-init="AddLiveParameters('localhost','989,1900')">
+        <div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th style="width:50%"><img src="../assets/img/Parker_Hannifin.png"></th>
+                        <th>
+                            <div style="width:100%;text-align:right">
+    <span>Trip Status</span>
+    <param-label-value tag='696' hidename="true"></param-label-value>
+</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div>
+    <param-edit-textbox tag="486" stepsize="0.1"/>
+</div>
+                            <div>
+    <param-edit-textbox tag="487" stepsize="0.1"/>
+</div>
+                            <div>
+    <param-edit-combobox tag="1900"/>
+</div>
+                        </td>
+                        <td>
+                            <div>
+    <param-gauge tag='393' min="0" max="1500" highlights="[{from:0,to:1200,color:'PaleGreen'},{from:1200,to:1500,color:'Red'}]"/>
+</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/js/modules/modernizr.js"></script>
+    <script src="../assets/js/modules/angular.min.js"></script>
+    <script src="../assets/js/modules/angular-route.min.js"></script>
+    <script src="../assets/js/modules/sockjs.min.js"></script>
+    <script src="../assets/js/modules/ng-file-upload-all.min.js"></script>
+    <script src="../assets/js/modules/ieUserAgent.js"></script>
+    <script src="../assets/js/modules/guage/gauge.min.js"></script>
+    <script src="../assets/js/modules/bootstrap-slider.min.js"></script>
+    <script src="../assets/js/app.js"></script>
+    <script src="../assets/js/services/multidrive-param.svc.js"></script>
+    <script src="../assets/js/services/websocket.service.js"></script>
+    <script src="../assets/js/services/arduino.svc.js"></script>
+    <script src="../assets/js/controllers/main.controller.js"></script>
+    <script src="../assets/js/controllers/drive-system.controller.js"></script>
+    <script src="../assets/js/services/drive-param.svc.js"></script>
+    <script src="../assets/js/directives/directives.js"></script>
+    <script src="../assets/js/components/param-edit-chkbox.js"></script>
+    <script src="../assets/js/components/param-gauge.js"></script>
+    <script src="../assets/js/components/param-edit-combobox.js"></script>
+    <script src="../assets/js/components/param-edit-textbox.js"></script>
+    <script src="../assets/js/components/file-browser.js"></script>
+    <script src="../assets/js/components/param-chart.js"></script>
+    <script src="../assets/js/components/param-label-value.js"></script>
+    <script src="../assets/js/components/param-edit-slider.js"></script>
+    <script src="../assets/js/modules/Chart.bundle.min.js"></script>
+    <script src="../assets/js/modules/angular-chart.min.js"></script>
+    <script src="../assets/js/modules/papaparse.min.js"></script>
+</body>
+
+</html>

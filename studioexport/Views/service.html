@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autotune</title>
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/styles.min.css">
+</head>
+
+<body>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">AC30 FW Files</h3></div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                    <button class="btn btn-link" type="button" ng-click="GetFwFiles()">Refresh Files</button>
+                </div>
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12" style="padding:0px">
+                    <ul class="list-group" style="border:5px">
+                        <li class="list-group-item" ng-repeat="file in FileList" style="height:15px;padding:0px;border:0px" ng-class="{active : SelectedFwFile=== file}" ng-click="selectFwFile(file)">
+                            <div class="row showHandCursor" style="margin:0px;padding:0px">
+    <div class="col-md-7 col-xs-7" style="text-align:left;margin:0px;padding:0px">{{file.Name}}</div>
+    <div class="col-md-3 col-xs-3" style="text-align:right;margin:0px;padding:0px">{{file.FileSizeMb}} KB</div>   
+    <button class="btn btn-link col-md-2 col-xs-2" ng-show="SelectedFwFile==file" type="button" ng-click="DeleteFile()" style="font-size:8pt;color:white;padding:0px 0px 0px 0px">Delete</button>
+</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-xs-12">
+                    <!-- <input type="file" file-model="myFile"/><br>
+<div>{{myFile}}</div>
+<br> -->
+<button class="btn btn-link" ngf-select="uploadFile($file)">Upload File</button>
+                </div>
+                <div class="col-md-6 col-xs-12">
+                    <!-- <input type="file" file-model="myFile"/><br>
+<div>{{myFile}}</div>
+<br> -->
+<button class="btn btn-link" ng-click="writeFileToDrive()">Write File to Drive</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">AC30 Firmware Uploader</h3></div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12" style="padding:0px">
+                    <ul class="list-group" style="border:5px">
+                        <li class="list-group-item" ng-repeat="drive in DriveList | orderObjectBy: 'Name' track by $index" style="height:15px;padding:0px;border:0px" ng-class="{active : SelectedDrive=== drive}" ng-click="selectDrive(drive)">
+                            <div class="row showHandCursor" style="margin:0px;padding:0px">
+    <div class="col-md-7 col-xs-6" style="text-align:left;margin:0px;padding:0px">{{drive.Name}}</div>
+    <div class="col-md-3 col-xs-4" style="text-align:right;margin:0px;padding:0px">{{drive.IpAddress}}</div>   
+    <button class="btn btn-link col-md-2 col-xs-2" ng-show="SelectedDrive==drive" type="button" ng-click="Identify()" style="font-size:8pt;color:white;padding:0px 0px 0px 0px">Identify</button>
+</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Codesys Runtime on Raspberry PI</h3></div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <button class="btn btn-link" type="button" ng-click="Codesys('start')" style="padding:0px">Start Codesys</button>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <button class="btn btn-link" type="button" ng-click="Codesys('stop')" style="padding:0px">Stop Codesys</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                    <div class="row">
+                        <div class="col-md-11 col-xs-12">
+                            <div class="well" style="padding:0px 0px 0px 0px;max-height:100px;overflow:auto;"><span ng-bind-html="ConsoleText" style="height:10px"> </span></div>
+                        </div>
+                        <div class="col-md-1">
+                            <button class="btn btn-link" type="button" ng-click="ClearCommandText()" style="padding:0px">Clear </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Webserver on Raspberry PI</h3></div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <button class="btn btn-link" type="button" ng-click="RestartWebserver()" style="padding:0px">Restart WebServer</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <button class="btn btn-link" type="button" ng-click="ConsoleCmd()" style="padding:0px">Send Cmd</button>
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" style="padding:0px">
+                            <input type="text" placeholder="Enter a linux cmd" ng-model="Command.Text" style="width:100%">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/js/script.min.js"></script>
+</body>
+
+</html>

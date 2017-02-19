@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html ng-app="ac30WebApp">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autotune</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.min.css">
+</head>
+
+<body ng-controller="driveSystemController" style="margin: 10px 10px 10px 10px">
+    <div ng-init="AddLiveParameters('localhost','989,1900')"></div>
+    <div style="width:100%;height:80px">
+        <div style="width:50%;float:left"><img src="assets/img/Parker_Hannifin.png"></div>
+        <div style="width:50%;float:right">
+            <div style="width:100%;text-align:right">
+    <span>Trip Status</span>
+    <param-label-value tag='696' hidename="true"></param-label-value>
+</div>
+        </div>
+    </div>
+    <div style="width:100%;margin:0px">
+        <div class="table-responsive">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td style="width:50%">
+                            <div style="height:100px">
+    <param-chart tag='1912' hidepausebutton="false" hidename="true"/>
+</div>
+                        </td>
+                        <td style="width:50%;height:200px">
+                            <param-chart tag="395"/>
+                        </td>
+                    </tr>
+                </tbody>
+                <caption class="text-center">Autotune Parameters</caption>
+            </table>
+        </div>
+    </div>
+    <div>
+        <div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th style="width:50%"></th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div>
+    <param-edit-chkbox tag="255"/>
+</div>
+                            <div>
+    <param-edit-combobox tag="256"/>
+</div>
+                            <div>
+    <param-edit-textbox tag="486" stepsize="0.1"/>
+</div>
+                            <div>
+    <param-edit-textbox tag="487" stepsize="0.1"/>
+</div>
+                            <div>
+    <param-edit-combobox tag="1900"/>
+</div>
+                        </td>
+                        <td>
+                            <div>
+    <param-gauge tag='393' min="0" max="1500" highlights="[{from:0,to:1200,color:'PaleGreen'},{from:1200,to:1500,color:'Red'}]"/>
+</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/script.min.js"></script>
+</body>
+
+</html>

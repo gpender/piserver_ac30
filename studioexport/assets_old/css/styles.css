@@ -1,0 +1,101 @@
+#parkerlogolink {
+  padding-top:5px;
+}
+
+hr.parkergold {
+  background:gold;
+  height:4px;
+  margin:0px;
+  margin-bottom:4px;
+  padding-top:0px;
+}
+
+.navbar {
+  position:relative;
+  min-height:30px;
+  margin-bottom:2px;
+  margin-top:2px;
+}
+
+.list-group {
+  margin:5px;
+}
+
+button#ScanButton.btn.btn-primary {
+  margin:10px;
+}
+
+.showHandCursor {
+  cursor:pointer;
+}
+
+.list-group-item {
+  margin-bottom:2px;
+}
+
+img#driveImage {
+  margin-top:5px;
+  margin-left:0px;
+}
+
+.fontMedium {
+  font-size:11px;
+}
+
+.fullheight {
+  height:100%;
+}
+
+.pageheight {
+  height:1000px;
+}
+
+.show-div {
+  display:block;
+}
+
+.hide-div {
+  display:none;
+}
+
+.alignRight {
+  text-align:right;
+}
+
+body {
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:1.2em;
+  line-height:1.42857143;
+  color:#333;
+  background-color:#ffffff;
+}
+
+span.boldText {
+  font-weight:700;
+}
+
+.modal-sm {
+  width:300px;
+}
+
+body {
+  /*margin:0px;*/
+  /*padding-right:0px;*/
+}
+
+html {
+  /*font-size:1em;*/
+  /*-webkit-tap-highlight-color:rgba(0,0,0,0);*/
+}
+
+.fake-input {
+  background-color:white;
+  border:1px solid darkgray;
+  box-shadow:1px 1px 1px 0 lightgray inset;
+  padding:2px 5px;
+}
+
+.modal-header {
+  max-height:200px;
+}
+
